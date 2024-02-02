@@ -1,1 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MP3 Player</title>
+<style>
+  .button {
+    margin: 10px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+
+  .button:hover {
+    background-color: #45a049;
+  }
+
+  audio {
+    width: 300px;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<button class="button" onclick="playAudio('audio1')">지각</button>
+<button class="button" onclick="playAudio('audio2')">Play Audio 2</button>
+<button class="button" onclick="playAudio('audio3')">Play Audio 3</button>
+
+<audio id="audio1" src="https://raw.githubusercontent.com/acoujin0421/scoldingbot/main/001.mp3" type="audio/mp3"></audio>
+<audio id="audio2" src="YOUR_GITHUB_FILE_URL_FOR_AUDIO_2.mp3" type="audio/mp3"></audio>
+<audio id="audio3" src="YOUR_GITHUB_FILE_URL_FOR_AUDIO_3.mp3" type="audio/mp3"></audio>
+
+<script>
+  function playAudio(audioId) {
+    var audios = document.querySelectorAll('audio');
+    // Pause other audios first
+    audios.forEach(function(audio) {
+      if (audio.id !== audioId) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    });
+    // Play the selected audio
+    document.getElementById(audioId).play();
+  }
+</script>
+
+</body>
+</html>
 
